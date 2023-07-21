@@ -1,17 +1,18 @@
 'use client';
 
-import SignIn from "./sign-in";
+import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./navbar.module.css";
-import Upload from "./upload";
-import { useEffect, useState } from "react";
+import SignIn from "./sign-in";
 import { onAuthStateChangedHelper } from "../firebase/firebase";
+import { useEffect, useState } from "react";
 import { User } from "firebase/auth";
+import Upload from "./upload";
 
 
-function NavBar() {
-  // Initialize user state
+export default function Navbar() {
+  // Init user state
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
@@ -21,19 +22,16 @@ function NavBar() {
 
     // Cleanup subscription on unmount
     return () => unsubscribe();
-  }, [] /* No dependencies, never rerun */);
-
+  });
 
   return (
     <nav className={styles.nav}>
       <Link href="/">
-        <span className={styles.logoContainer}>
-          <img className={styles.logo} src="/youtube-logo.svg" alt="YouTube Logo" />
-        </span>
+        <Image width={90} height={20}
+          src="/youtube-logo.svg" alt="YouTube Logo"/>
       </Link>
+      { user && <Upload /> }
       <SignIn user={user} />
     </nav>
   );
 }
-
-export default NavBar;

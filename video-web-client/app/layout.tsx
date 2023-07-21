@@ -6,8 +6,8 @@ import Navbar from './navbar/navbar'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'VideoService',
-  description: 'Yotube, but better',
+  title: 'Youtube',
+  description: 'Youtube Clone',
 }
 
 export default function RootLayout({

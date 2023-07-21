@@ -1,22 +1,28 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, User } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  User
+} from "firebase/auth";
+import { getFunctions } from "firebase/functions";
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: "",
-  measurementId: ""
+  apiKey: "AIzaSyC-dQbGC9TkBE-kyXg8dOPKJMX3Mj4I14o",
+  authDomain: "tascano-video-service.firebaseapp.com",
+  projectId: "tascano-video-service",
+  appId: "1:437029731285:web:ba89afbff7fe3b11045b5c"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
+
+export const functions = getFunctions();
 
 /**
  * Signs the user in with a Google popup.
